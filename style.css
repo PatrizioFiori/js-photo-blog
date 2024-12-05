@@ -14,11 +14,7 @@ header {
 main {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-image: url(./img/cork.png);
-    overflow: scroll;
-}
-
-main::-webkit-scrollbar {
-    display: none;
+    overflow: auto;
 }
 
 .card-utente {
@@ -26,7 +22,7 @@ main::-webkit-scrollbar {
     text-align: center;
     padding: 15px;
     position: relative;
-    border-radius: 8px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 
 }
 
@@ -44,7 +40,6 @@ main::-webkit-scrollbar {
     width: 100%;
     max-height: 250px;
     object-fit: cover;
-    border-radius: 4px;
     display: block;
     margin: 0 auto;
 }
