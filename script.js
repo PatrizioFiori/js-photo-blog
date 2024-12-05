@@ -11,6 +11,7 @@ axios.get(endpoint)
 
     .catch(function(error) {
         console.log(error);
+        alert(error)
     });
 
 
