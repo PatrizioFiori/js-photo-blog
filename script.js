@@ -28,7 +28,7 @@ axios.get(endpoint)
         
         containerCarteUtenti +=
                             `<div class="col-md-4">
-                                <div class="card-utente">
+                                <div class="card-utente" id="interazioneCard">
                                     <img src=${thumb} alt="" class="img">
                                     <p class="mt-2">${titolo}</p>
                                 </div>
@@ -37,3 +37,11 @@ axios.get(endpoint)
         document.querySelector(".sezioneRow").innerHTML = containerCarteUtenti        
         
     }
+
+
+
+
+    /*
+    Click sulla carta -> event listener al click ->
+    
+    */
