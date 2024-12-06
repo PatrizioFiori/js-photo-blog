@@ -5,10 +5,12 @@ let containerCarteUtenti = ""
 let overlayOnOff = true
 let overlayContainer = "" 
 
-
 axios.get(endpoint)
     .then(function(response) {
         response.data.forEach(element => inserimentoFotoTitolo(element));
+        document.querySelectorAll(".interazioneCard").forEach(card => {
+            card.addEventListener("click", comparsaScomparsa)
+        })
     })
 
 
@@ -19,31 +21,16 @@ axios.get(endpoint)
 
 
     function inserimentoFotoTitolo(element){
-        const thumb = element.thumbnailUrl
-        const titolo = element.title
-        
-        /*  per domani
-        const albumId = element.albumId 
-        const id = element.id
-        const url = element.url
-        console.log(albumId, id, titolo, url, thumb);
-        */
-        
-        containerCarteUtenti +=
-                            `<div class="col-md-4 interazioneCard">
-                                <div class="card-utente">
-                                    <img src=${thumb} alt="" class="img">
-                                    <p class="mt-2">${titolo}</p>
-                                </div>
-                            </div>`
+        const {thumbnailUrl, title, id, url,} = element
 
-        document.querySelector(".sezioneRow").innerHTML = containerCarteUtenti        
-        
-        // Non sono sicuro al 100% di questa parte (Da studiare meglio)
-        document.querySelectorAll(".interazioneCard").forEach(card => {
-            card.addEventListener("click", comparsaScomparsa)
-            
-        })
+        document.querySelector(".sezioneRow").innerHTML += 
+        `<div class="col-md-4 interazioneCard">
+            <div class="card-utente">
+                <img src=${thumbnailUrl} alt="" class="img">
+                <p class="mt-2">${title}</p>
+            </div>
+        </div>
+        `
     }
     
 
@@ -53,7 +40,9 @@ axios.get(endpoint)
     
     
 function comparsaScomparsa (){
+    
     const overlayStatus = document.querySelector(".imgOverlay")
+    
     
 
     if (overlayOnOff === true){
