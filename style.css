@@ -27,10 +27,18 @@ main {
     padding: 15px;
     position: relative;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s; /* Aggiungi transizione anche per box-shadow */
 }
 
-.interazioneCard :hover{
-    rotate: 4deg;
+.card-utente:hover {
+    transform: scale(1.1) rotate(10deg); /* Applicare entrambi gli effetti di trasformazione */
+    box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.interazioneCard img, p{
+    pointer-events:none;
 }
 
 .card-utente::before {
@@ -68,6 +76,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 3;
 }
 
 .imgOverlay img{
