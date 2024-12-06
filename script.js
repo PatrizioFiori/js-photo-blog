@@ -39,6 +39,7 @@ axios.get(endpoint)
         // Non sono sicuro al 100% di questa parte (Da studiare meglio)
         document.querySelectorAll(".interazioneCard").forEach(card => {
             card.addEventListener("click", comparsaScomparsa)
+            
         })
     }
     
