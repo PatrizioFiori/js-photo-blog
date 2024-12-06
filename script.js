@@ -27,8 +27,8 @@ axios.get(endpoint)
         */
         
         containerCarteUtenti +=
-                            `<div class="col-md-4">
-                                <div class="card-utente" id="interazioneCard">
+                            `<div class="col-md-4 interazioneCard">
+                                <div class="card-utente">
                                     <img src=${thumb} alt="" class="img">
                                     <p class="mt-2">${titolo}</p>
                                 </div>
@@ -36,12 +36,30 @@ axios.get(endpoint)
 
         document.querySelector(".sezioneRow").innerHTML = containerCarteUtenti        
         
+        // Non sono sicuro al 100% di questa parte (Da studiare meglio)
+        document.querySelectorAll(".interazioneCard").forEach(card => {
+            card.addEventListener("click", comparsaScomparsa)
+        })
     }
-
-
-
-
-    /*
-    Click sulla carta -> event listener al click ->
     
-    */
+
+
+    let overlayOnOff = true
+        
+    const button = document.getElementById("btnChiusuraOverlay")
+    button.addEventListener("click", comparsaScomparsa)
+    
+    
+function comparsaScomparsa (){
+    const overlayStatus = document.querySelector(".imgOverlay")
+    if (overlayOnOff === true){
+        overlayStatus.classList.remove('d-none');
+        overlayOnOff = false 
+        
+    } else {
+        overlayStatus.classList.add('d-none');
+        overlayOnOff = true 
+    }
+    
+    
+}
