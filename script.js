@@ -46,9 +46,9 @@ function comparsaScomparsa (event){
     
 
     if (event.type === "click" && event.currentTarget.classList.contains("interazioneCard")) {
-        const card = event.currentTarget //associo a card l'elemento che è stato cliccato e che ha subito l'evento
-        const thumbnailUrl = card.getAttribute("data-thumbnail") //tramite GetAttribute estraggo il valore di data 
-        imgOnOverlay.src = thumbnailUrl; //associo il valore estratto alla riga 52 all'SRC della classe imgOnOverlay definita a riga 45
+        const card = event.currentTarget
+        const thumbnailUrl = card.getAttribute("data-thumbnail")
+        imgOnOverlay.src = thumbnailUrl;
     }
 
     if (overlayOnOff === true){
